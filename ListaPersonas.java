@@ -12,20 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import es.salesianos.model.Actor;
 import service.Service;
 
-public class BuscarOwner extends HttpServlet {
+public class ListaPersonas extends HttpServlet{
 	
 	private Service servicio = new Service();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String namePet = (String) req.getParameter("namePet");
-		Actor listDuenos = servicio.findOwnerByPet(namePet);
-		req.setAttribute("listDuenos", listDuenos);
-		redirect(req, resp);
+		List<Actor> listAllActores = servicio.listAllUsers();
+		req.setAttribute("listAllActores", listAllActores);
+		redirect(req,resp);
 	}
-
+	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/FindOwnerByPet.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarActores.jsp");
 		dispatcher.forward(req, resp);
 	}
+	
+
 }

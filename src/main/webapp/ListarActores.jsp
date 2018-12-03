@@ -53,7 +53,7 @@ List<Actor> actores = (List<Actor>)request.getAttribute("listAllActores");
 				<td><c:out value="${actor.cod}"/> </td>
 				<td><c:out value="${actor.name}"/> </td>
 				<td><c:out value="${actor.yearofbirthdate}"/> </td>
-				<td><a href="/confirmarDelete?cod=${actor.cod}">DELETE</a> </td>
+				<td><a href="/borrarActor?cod=${actor.cod}">DELETE</a> </td>
 	    	</tr>
 		</c:forEach>
 	</tbody>

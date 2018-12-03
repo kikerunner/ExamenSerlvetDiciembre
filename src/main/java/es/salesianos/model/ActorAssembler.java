@@ -6,16 +6,20 @@ public class ActorAssembler {
 
 	public static Actor assembleUserFrom(HttpServletRequest req) {
 
+		System.out.println(req.getParameter("cod"));
 		Actor actor = new Actor();
 		String codActor = req.getParameter("cod");
 		String name = req.getParameter("name");
-		int yearofbirthdate = Integer.parseInt(req.getParameter("yearofbirthdate"));
+		String yearofbirthdate = req.getParameter("yearofbirthdate");
 		
 		if (codActor != null) {
 			actor.setCod(Integer.parseInt(codActor));
 		}
 		actor.setName(name);
-		actor.setYearofbirthdate(yearofbirthdate);
+		
+		if (yearofbirthdate != null) {
+			Integer.parseInt(req.getParameter("yearofbirthdate"));
+		}
 
 		return actor;
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
+import es.salesianos.model.Pelicula;
 import service.Service;
 
 public class ListaPersonas extends HttpServlet{
@@ -18,13 +19,13 @@ public class ListaPersonas extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Actor> listAllActores = servicio.listAllUsers();
-		req.setAttribute("listAllActores", listAllActores);
+		List<Pelicula> listAllPeliculas = servicio.listAllPeliculas();
+		req.setAttribute("listAllActores", listAllPeliculas);
 		redirect(req,resp);
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarActores.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarPeliculas.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

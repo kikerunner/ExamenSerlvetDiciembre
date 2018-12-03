@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
 import es.salesianos.model.ActorAssembler;
-import es.salesianos.model.Mascota;
+import es.salesianos.model.Pelicula;
 import es.salesianos.model.PetAssembler;
 import es.salesianos.repository.ActoresRepository;
-import es.salesianos.repository.PetRepository;
+import es.salesianos.repository.PeliRepository;
 import service.Service;
 
 public class AddPet extends HttpServlet{
 	
-	PetRepository repository = new PetRepository();
+	PeliRepository repository = new PeliRepository();
 	Service servicio = new Service();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,8 +30,8 @@ public class AddPet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
-		Mascota mascota = PetAssembler.assemblerPetFrom(req);
-		repository.insertPet(mascota);
+	//	Pelicula mascota = PetAssembler.assemblerPetFrom(req);
+	//	repository.insertPet(mascota);
 		redirect(req, resp, "/insertarPet.jsp");
 	}
 	

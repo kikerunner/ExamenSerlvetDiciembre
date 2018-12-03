@@ -10,25 +10,56 @@ import java.util.List;
 import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Actor;
-import es.salesianos.model.Mascota;
+import es.salesianos.model.Pelicula;
 
-public class PetRepository {
+public class PeliRepository {
 
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	AbstractConnection manager = new H2Connection();
 	Actor personaendatabase = null;
 	
+	
+	
+	public List<Pelicula>searchAll() {
+		List<Pelicula> peliculas = new ArrayList<Pelicula>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT * FROM FILM");
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				Pelicula peliculaInDatabase = new Pelicula();
+				peliculaInDatabase.setCod(resultSet.getInt(1));
+				peliculaInDatabase.setTitle((resultSet.getString(2)));
+				peliculaInDatabase.setCodOwner((resultSet.getInt(3)));
+				
+				peliculas.add(peliculaInDatabase);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+		}
+
+		manager.close(conn);
+		return peliculas;
+		
+	}
+	
 
 	
 	
-	public void insertPet(Mascota mascota) {
+	public void insertPelicula(Pelicula pelicula) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO MASCOTAS(nomMascota,CodPersona) VALUES (?, ?)");
-			preparedStatement.setString(1, mascota.getNomMascota());
-			preparedStatement.setInt(2, mascota.getCodPersona());
+					.prepareStatement("INSERT INTO FILM(TITTLE,CODOWNER) VALUES (?, ?)");
+			preparedStatement.setString(1, pelicula.getTitle());
+			preparedStatement.setInt(2, pelicula.getCodOwner());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

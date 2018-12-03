@@ -8,14 +8,16 @@ public class Actor {
 	private int cod;
 	private String name;
 	private int yearofbirthdate;
-	private List<Mascota> mascotas = new ArrayList();
+	private List<Pelicula> peliculas = new ArrayList();
 	
-	public List<Mascota> getMascotas() {
-		return mascotas;
+
+
+	public List<Pelicula> getPeliculas() {
+		return peliculas;
 	}
 
-	public void setMascotas(List<Mascota> mascotas) {
-		this.mascotas = mascotas;
+	public void setPeliculas(List<Pelicula> peliculas) {
+		this.peliculas = peliculas;
 	}
 
 	public int getCod() {

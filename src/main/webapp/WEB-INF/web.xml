@@ -9,9 +9,32 @@
 		<servlet-class>es.salesianos.servlet.InsertarActor</servlet-class>
 	</servlet>
 	
+	
+	<servlet>
+		<servlet-name>InsertarDirector</servlet-name>
+		<servlet-class>es.salesianos.servlet.InsertarDirector</servlet-class>
+	</servlet>
+	
+	
+	<servlet>
+		<servlet-name>InsertarPelicula</servlet-name>
+		<servlet-class>es.salesianos.servlet.InsertarPelicula</servlet-class>
+	</servlet>
+	
 	<servlet>
 		<servlet-name>listado</servlet-name>
 		<servlet-class>es.salesianos.servlet.ListaPersonas</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ListaPeliculas</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListaPeliculas</servlet-class>
+	</servlet>
+	
+	
+	<servlet>
+		<servlet-name>ListaDirectores</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListaDirectores</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -30,8 +53,8 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>BorrarPersona</servlet-name>
-		<servlet-class>es.salesianos.servlet.BorrarPersona</servlet-class>
+		<servlet-name>BorrarActor</servlet-name>
+		<servlet-class>es.salesianos.servlet.BorrarActor</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -39,10 +62,6 @@
 		<servlet-class>es.salesianos.servlet.BuscarOwner</servlet-class>
 	</servlet>
 	
-	<servlet>
-		<servlet-name>confirmationDelete</servlet-name>
-		<servlet-class>es.salesianos.servlet.confirmationDelete</servlet-class>
-	</servlet>
 	
 	
 	
@@ -57,18 +76,28 @@
 	</servlet-mapping>
 	
 	<servlet-mapping>
+		<servlet-name>InsertarDirector</servlet-name>
+		<url-pattern>insertarDirector</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>InsertarPelicula</servlet-name>
+		<url-pattern>insertarPelicula</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
 		<servlet-name>EditarPersona</servlet-name>
 		<url-pattern>editar</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>BorrarPersona</servlet-name>
-		<url-pattern>borrar</url-pattern>
+		<servlet-name>BorrarActor</servlet-name>
+		<url-pattern>borrarActor</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
-		<servlet-name>confirmationDelete</servlet-name>
-		<url-pattern>confirmarDelete</url-pattern>
+		<servlet-name>BorrarPelicula</servlet-name>
+		<url-pattern>borrarPelicula</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
@@ -80,6 +109,16 @@
 	<servlet-mapping>
 		<servlet-name>listado</servlet-name>
 		<url-pattern>cargarListado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListaPeliculas</servlet-name>
+		<url-pattern>cargarListadoPeliculas</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListaDirectores</servlet-name>
+		<url-pattern>cargarListadoDirectores</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>

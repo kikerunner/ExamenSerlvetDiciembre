@@ -8,6 +8,6 @@
 </head>
 <body>
 	Borrado con éxito
-	<a href="/ListarPersonas.jsp"> Volver a la lista</a>
+	<a href="/ListarActores.jsp"> Volver a la lista</a>
 </body>
 </html>

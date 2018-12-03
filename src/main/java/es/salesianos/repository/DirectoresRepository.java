@@ -11,21 +11,21 @@ import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Pelicula;
 import es.salesianos.model.Actor;
+import es.salesianos.model.Director;
 
-public class ActoresRepository {
+public class DirectoresRepository {
 
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	AbstractConnection manager = new H2Connection();
 
 
-	public void insert(Actor actor) {
+	public void insertDirector(Director director) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO ACTOR(NAME,YEAROFBIRTHDATE) VALUES (?, ?)");
-			preparedStatement.setString(1, actor.getName());
-			preparedStatement.setInt(2, actor.getYearofbirthdate());
+					.prepareStatement("INSERT INTO DIRECTOR(NAME) VALUES ( ?)");
+			preparedStatement.setString(1, director.getName());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,22 +56,21 @@ public class ActoresRepository {
 		manager.close(conn);
 	}
 	
-	public List<Actor>searchAll() {
-		List<Actor> actores = new ArrayList<Actor>();
+	public List<Director>searchAll() {
+		List<Director> directores = new ArrayList<Director>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("SELECT * FROM Actor");
+					.prepareStatement("SELECT * FROM director");
 			resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				Actor actorInDatabase = new Actor();
-				actorInDatabase.setCod(resultSet.getInt(1));
-				actorInDatabase.setName(resultSet.getString(2));
-				actorInDatabase.setYearofbirthdate((resultSet.getInt(3)));
+				Director directorInDatabase = new Director();
+				directorInDatabase.setCod(resultSet.getInt(1));
+				directorInDatabase.setName(resultSet.getString(2));
 				
-				actores.add(actorInDatabase);
+				directores.add(directorInDatabase);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -81,7 +80,7 @@ public class ActoresRepository {
 		}
 
 		manager.close(conn);
-		return actores;
+		return directores;
 		
 	}
 	

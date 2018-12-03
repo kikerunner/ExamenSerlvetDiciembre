@@ -12,22 +12,23 @@ import es.salesianos.model.Actor;
 import es.salesianos.model.ActorAssembler;
 import service.Service;
 
-public class BorrarPersona extends HttpServlet {
+public class BorrarActor extends HttpServlet {
 	
 	Service servicio = new Service();
-	Actor personaEnDatabase = null;
+	Actor actorEnDatabase = null;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Actor personaFormulario = ActorAssembler.assembleUserFrom(req);
-		//Actor personaEnDatabase = servicio.searchOnePerson(personaFormulario.getCodPersona());
-		req.setAttribute("personaBorrar", personaEnDatabase);
-		servicio.borrarPersona(personaEnDatabase);
+		Actor actorFormulario = ActorAssembler.assembleUserFrom(req);
+		System.out.println(actorFormulario.getCod());
+		Actor actorEnDatabase = servicio.searchOnePerson(actorFormulario.getCod());
+		req.setAttribute("personaBorrar", actorEnDatabase);
+		servicio.borrarActor(actorEnDatabase);
 		redirect(req, resp);
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/borrarPersona.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarActores.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
