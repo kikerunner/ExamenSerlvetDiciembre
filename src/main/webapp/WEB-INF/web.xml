@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+    version="3.1">
+	<display-name>examenPrueba</display-name>
+	
+	<servlet>
+		<servlet-name>InsertarActor</servlet-name>
+		<servlet-class>es.salesianos.servlet.InsertarActor</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>listado</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListaPersonas</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>EditarPersona</servlet-name>
+		<servlet-class>es.salesianos.servlet.EditarPersona</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>UpdatePersona</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdatePersona</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddPet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddPet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BorrarPersona</servlet-name>
+		<servlet-class>es.salesianos.servlet.BorrarPersona</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BuscarOwner</servlet-name>
+		<servlet-class>es.salesianos.servlet.BuscarOwner</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>confirmationDelete</servlet-name>
+		<servlet-class>es.salesianos.servlet.confirmationDelete</servlet-class>
+	</servlet>
+	
+	
+	
+	<servlet-mapping>
+		<servlet-name>BuscarOwner</servlet-name>
+		<url-pattern>FindOwnerByPet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>InsertarActor</servlet-name>
+		<url-pattern>insertar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>EditarPersona</servlet-name>
+		<url-pattern>editar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BorrarPersona</servlet-name>
+		<url-pattern>borrar</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>confirmationDelete</servlet-name>
+		<url-pattern>confirmarDelete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddPet</servlet-name>
+		<url-pattern>addPet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet-mapping>
+		<servlet-name>listado</servlet-name>
+		<url-pattern>cargarListado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>UpdatePersona</servlet-name>
+		<url-pattern>updatePersona</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+
+</web-app>
