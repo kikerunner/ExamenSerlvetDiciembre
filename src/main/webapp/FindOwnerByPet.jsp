@@ -11,31 +11,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/FindOwnerByPet" method="post">
-		<span>nombre Mascota:</span> <input type="text" name="namePet"> <br />
+	<form action="/FindResultados" method="post">
+		<span>Año 1:</span> <input type="text" name="ano1"> <br />
+		<span>Año 2:</span> <input type="text" name="ano2"> <br />
 		<input type="submit">
 	</form>
 	<% 
-	//Persona persona = (Persona)request.getAttribute("listDuenos");
+	Director directores = (Director)request.getAttribute("listResultados");
 	
-	//pageContext.setAttribute("persona", persona);
+	pageContext.setAttribute("director", directores);
 	%>
 
 <table border="1">
 	<thead>
 		<tr>
-			<td>Cod Persona</td>
+			<td>Cod Director</td>
 			<td>Nombre</td>
-			<td>Apellido</td>
 		</tr>
 	</thead>
-	<tbody>
+	<c:forEach var="director" items="${listResultados}">
 			<tr>
-				<td><c:out value="${persona.codPersona}"/> </td>
-				<td><c:out value="${persona.name}"/> </td>
-				<td><c:out value="${persona.apellido}"/> </td>
+				<td><c:out value="${director.cod}"/> </td>
+				<td><c:out value="${director.name}"/> </td>
 	    	</tr>
-	</tbody>
+		</c:forEach>
 </table>
 </body>
 </html>

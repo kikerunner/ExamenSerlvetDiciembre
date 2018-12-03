@@ -84,21 +84,20 @@ public class DirectoresRepository {
 		
 	}
 	
-	public Actor selectOneActor(int CodPersona) {
-		Actor actorInDatabase = null;
+	public Director selectOneDirector(int CodDirector) {
+		Director directorInDatabase = null;
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("SELECT * FROM Actor WHERE Cod = ?");
-			preparedStatement.setInt(1, CodPersona);
+					.prepareStatement("SELECT * FROM Director WHERE Cod = ?");
+			preparedStatement.setInt(1, CodDirector);
 			resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				actorInDatabase = new Actor();
-				actorInDatabase.setCod(resultSet.getInt(1));
-				actorInDatabase.setName(resultSet.getString(2));
-				actorInDatabase.setYearofbirthdate((resultSet.getInt(3)));
+				directorInDatabase = new Director();
+				directorInDatabase.setCod(resultSet.getInt(1));
+				directorInDatabase.setName(resultSet.getString(2));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -108,7 +107,7 @@ public class DirectoresRepository {
 		}
 
 		manager.close(conn);
-		return actorInDatabase;
+		return directorInDatabase;
 	}
 	
 	public void updatePerson(Actor persona) {
@@ -132,13 +131,13 @@ public class DirectoresRepository {
 		
 	}
 	
-	public void borrarActor(Actor actor) {
+	public void borrarDirector(Director director) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("DELETE FROM Actor WHERE COD = ?");	
-			preparedStatement.setInt(1, actor.getCod());
+					.prepareStatement("DELETE FROM Director WHERE COD = ?");	
+			preparedStatement.setInt(1, director.getCod());
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

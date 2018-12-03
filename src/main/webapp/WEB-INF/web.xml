@@ -9,6 +9,10 @@
 		<servlet-class>es.salesianos.servlet.InsertarActor</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>RelacionarPelicula</servlet-name>
+		<servlet-class>es.salesianos.servlet.RelacionarPelicula</servlet-class>
+	</servlet>	
 	
 	<servlet>
 		<servlet-name>InsertarDirector</servlet-name>
@@ -58,16 +62,24 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>BuscarOwner</servlet-name>
-		<servlet-class>es.salesianos.servlet.BuscarOwner</servlet-class>
+		<servlet-name>BorrarPelicula</servlet-name>
+		<servlet-class>es.salesianos.servlet.BorrarPelicula</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BorrarDirector</servlet-name>
+		<servlet-class>es.salesianos.servlet.BorrarDirector</servlet-class>
 	</servlet>
 	
 	
-	
+	<servlet>
+		<servlet-name>FindResultadosOwner</servlet-name>
+		<servlet-class>es.salesianos.servlet.FindResultadosOwner</servlet-class>
+	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>BuscarOwner</servlet-name>
-		<url-pattern>FindOwnerByPet</url-pattern>
+		<servlet-name>FindResultadosOwner</servlet-name>
+		<url-pattern>FindResultados</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
@@ -98,6 +110,16 @@
 	<servlet-mapping>
 		<servlet-name>BorrarPelicula</servlet-name>
 		<url-pattern>borrarPelicula</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RelacionarPelicula</servlet-name>
+		<url-pattern>relacionarPelicula</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>BorrarDirector</servlet-name>
+		<url-pattern>borrarDirector</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>

@@ -99,21 +99,21 @@ public class PeliRepository {
 		return personaendatabase;
 	}
 	
-	public Actor selectOnePet(int CodPersona) {
-		Actor personaInDatabase = null;
+	public Pelicula selectOnePlicula(int CodPersona) {
+		Pelicula personaInDatabase = null;
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("SELECT * FROM Personas WHERE CodPersona = ?");
+					.prepareStatement("SELECT * FROM FILM WHERE Cod = ?");
 			preparedStatement.setInt(1, CodPersona);
 			resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				//personaInDatabase = new Persona();
-				//personaInDatabase.setCodPersona(resultSet.getInt(1));
-				personaInDatabase.setName(resultSet.getString(2));
-				//personaInDatabase.setApellido(resultSet.getString(3));
+			personaInDatabase = new Pelicula();
+			personaInDatabase.setCod((resultSet.getInt(1)));
+			personaInDatabase.setTitle((resultSet.getString(2)));
+			personaInDatabase.setCodOwner((resultSet.getInt(3)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -124,5 +124,22 @@ public class PeliRepository {
 
 		manager.close(conn);
 		return personaInDatabase;
+	}
+	
+	public void borrarPelicula(Pelicula pelicula) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("DELETE FROM Film WHERE COD = ?");	
+			preparedStatement.setInt(1, pelicula.getCod());
+			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
 	}
 }

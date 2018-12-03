@@ -18,7 +18,8 @@ public class BuscarOwner extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String namePet = (String) req.getParameter("namePet");
+		String ano1 = (String) req.getParameter("namePet");
+		String ano2 = (String) req.getParameter("namePet");
 		Actor listDuenos = servicio.findOwnerByPet(namePet);
 		req.setAttribute("listDuenos", listDuenos);
 		redirect(req, resp);

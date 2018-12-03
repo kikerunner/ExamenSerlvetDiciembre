@@ -31,6 +31,14 @@ public class Service {
 		return repository.selectOneActor(Cod);
 	}
 	
+	public Pelicula searchOnePelicula(int Cod) {
+		return repoPeli.selectOnePlicula(Cod);
+	}
+	
+	public Director searchOneDirector(int Cod) {
+		return repoDirector.selectOneDirector(Cod);
+	}
+	
 	public Actor findOwnerByPet(String nomMascota) {
 		return repoPeli.selectOwnerByPet(nomMascota);
 	}
@@ -41,6 +49,14 @@ public class Service {
 	
 	public void borrarActor(Actor actor) {
 		repository.borrarActor(actor);
+	}
+	
+	public void borrarPelicula(Pelicula pelicula) {
+		repoPeli.borrarPelicula(pelicula);
+	}
+	
+	public void borrarDirector(Director director) {
+		repoDirector.borrarDirector(director);
 	}
 
 }

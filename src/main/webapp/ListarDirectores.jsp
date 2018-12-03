@@ -50,7 +50,7 @@ List<Director> directores  = (List<Director>)request.getAttribute("listAllDirect
 			<tr>
 				<td><c:out value="${director.cod}"/> </td>
 				<td><c:out value="${director.name}"/> </td>
-				<td><a href="/borrarPelicula?cod=${pelicula.cod}">DELETE</a> </td>
+				<td><a href="/borrarDirector?cod=${director.cod}">DELETE</a> </td>
 	    	</tr>
 		</c:forEach>
 	</tbody>

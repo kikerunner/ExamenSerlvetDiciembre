@@ -41,6 +41,7 @@ List<Pelicula> peliculas = (List<Pelicula>)request.getAttribute("listAllPelicula
 			<td>Cod Pelicula</td>
 			<td>Nombre Pelicula</td>
 			<td>CodOWner</td>
+			<td>CrearRelacion entre Peliculas y actores</td>
 			<td>Borrar</td>
 		</tr>
 	</thead>
@@ -53,6 +54,7 @@ List<Pelicula> peliculas = (List<Pelicula>)request.getAttribute("listAllPelicula
 				<td><c:out value="${pelicula.cod}"/> </td>
 				<td><c:out value="${pelicula.title}"/> </td>
 				<td><c:out value="${pelicula.codOwner}"/> </td>
+				<td><a href="/relacionarPelicula?cod=${pelicula.cod}">DELETE</a> </td>
 				<td><a href="/borrarPelicula?cod=${pelicula.cod}">DELETE</a> </td>
 	    	</tr>
 		</c:forEach>
