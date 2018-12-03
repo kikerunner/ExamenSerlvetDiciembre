@@ -57,33 +57,21 @@ public class ActoresRepository {
 	}
 	
 	public List<Actor>searchAll() {
-		List<Actor> personas = new ArrayList<Actor>();
+		List<Actor> actores = new ArrayList<Actor>();
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("SELECT * FROM Personas");
+					.prepareStatement("SELECT * FROM Actor");
 			resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				Actor personaInDatabase = new Actor();
-				//personaInDatabase.setCodPersona(resultSet.getInt(1));
-				personaInDatabase.setName(resultSet.getString(2));
-				//personaInDatabase.setApellido(resultSet.getString(3));
+				Actor actorInDatabase = new Actor();
+				actorInDatabase.setCod(resultSet.getInt(1));
+				actorInDatabase.setName(resultSet.getString(2));
+				actorInDatabase.setYearofbirthdate((resultSet.getInt(3)));
 				
-				personas.add(personaInDatabase);
-			}
-			for (Actor persona : personas) {
-				
-			//	preparedStatement = conn.prepareStatement(
-					//	"SELECT * FROM MASCOTAS where codPersona="+persona.getCodPersona());
-			//	resultSet = preparedStatement.executeQuery();
-				while (resultSet.next()) {
-					Mascota pet = new Mascota();
-					pet.setNomMascota(resultSet.getString(1));
-					pet.setCodPersona(resultSet.getInt(2));
-					persona.getMascotas().add(pet);
-				}
+				actores.add(actorInDatabase);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -93,7 +81,7 @@ public class ActoresRepository {
 		}
 
 		manager.close(conn);
-		return personas;
+		return actores;
 		
 	}
 	
@@ -145,26 +133,18 @@ public class ActoresRepository {
 		
 	}
 	
-	public void borrarPersona(Actor persona) {
+	public void borrarActor(Actor persona) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		PreparedStatement preparedStatement2 = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("DELETE FROM PERSONAS WHERE CodPersona = ?");	
-		//	preparedStatement.setInt(1, persona.getCodPersona());
-			
-			preparedStatement2 = conn
-					.prepareStatement("DELETE FROM MASCOTAS WHERE CodPersona = ?");	
-		//	preparedStatement2.setInt(1, persona.getCodPersona());
-			
-			preparedStatement2.executeUpdate();
+					.prepareStatement("DELETE FROM Actor WHERE CodPersona = ?");	
+			preparedStatement.setInt(1, persona.getCod());
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			manager.close(preparedStatement2);
 			manager.close(preparedStatement);
 			manager.close(conn);
 		}

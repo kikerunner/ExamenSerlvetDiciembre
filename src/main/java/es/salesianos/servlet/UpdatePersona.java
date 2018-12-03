@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
-import es.salesianos.model.PersonaAssembler;
+import es.salesianos.model.ActorAssembler;
 import service.Service;
 
 public class UpdatePersona extends HttpServlet{
@@ -19,7 +19,7 @@ public class UpdatePersona extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Actor persona = PersonaAssembler.assembleUserFrom(req);
+		Actor persona = ActorAssembler.assembleUserFrom(req);
 		//System.out.println(persona.getCodPersona());
 		System.out.println(persona.getName());
 		//System.out.println(persona.getApellido());

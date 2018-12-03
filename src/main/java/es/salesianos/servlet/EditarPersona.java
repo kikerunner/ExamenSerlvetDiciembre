@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
-import es.salesianos.model.PersonaAssembler;
+import es.salesianos.model.ActorAssembler;
 import es.salesianos.repository.ActoresRepository;
 import service.Service;
 
@@ -17,7 +17,7 @@ public class EditarPersona extends HttpServlet{
 	
 	private Service servicio = new Service();
 	private ActoresRepository repo = new ActoresRepository();
-	private PersonaAssembler personaAssembler = new PersonaAssembler();
+	private ActorAssembler personaAssembler = new ActorAssembler();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

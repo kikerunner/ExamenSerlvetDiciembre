@@ -18,13 +18,13 @@ public class ListaPersonas extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Actor> listAllPersonas = servicio.listAllUsers();
-		req.setAttribute("listAllPersonas", listAllPersonas);
+		List<Actor> listAllActores = servicio.listAllUsers();
+		req.setAttribute("listAllActores", listAllActores);
 		redirect(req,resp);
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarPersonas.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarActores.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

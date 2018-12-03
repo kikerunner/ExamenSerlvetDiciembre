@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
-import es.salesianos.model.PersonaAssembler;
+import es.salesianos.model.ActorAssembler;
 import es.salesianos.repository.ActoresRepository;
 import service.Service;
 
@@ -17,13 +17,13 @@ public class confirmationDelete extends HttpServlet{
 	
 	private Service servicio = new Service();
 	private ActoresRepository repo = new ActoresRepository();
-	private PersonaAssembler personaAssembler = new PersonaAssembler();
+	private ActorAssembler personaAssembler = new ActorAssembler();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Actor personaFormulario = personaAssembler.assembleUserFrom(req);
-		//Actor personaEnDatabase = servicio.searchOnePerson(personaFormulario.getCodPersona());
-		//req.setAttribute("personaToBorrar", personaEnDatabase);
+		Actor actorFormulario = personaAssembler.assembleUserFrom(req);
+		Actor actorEnDatabase = servicio.borrarActor(actorFormulario);
+		req.setAttribute("personaToBorrar", actorEnDatabase);
 		redirect(req, resp);
 	}
 	

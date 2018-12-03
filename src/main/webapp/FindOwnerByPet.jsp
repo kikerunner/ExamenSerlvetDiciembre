@@ -16,9 +16,9 @@
 		<input type="submit">
 	</form>
 	<% 
-	Persona persona = (Persona)request.getAttribute("listDuenos");
+	//Persona persona = (Persona)request.getAttribute("listDuenos");
 	
-	pageContext.setAttribute("persona", persona);
+	//pageContext.setAttribute("persona", persona);
 	%>
 
 <table border="1">

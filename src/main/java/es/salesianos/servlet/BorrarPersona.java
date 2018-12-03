@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
-import es.salesianos.model.PersonaAssembler;
+import es.salesianos.model.ActorAssembler;
 import service.Service;
 
 public class BorrarPersona extends HttpServlet {
@@ -19,7 +19,7 @@ public class BorrarPersona extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Actor personaFormulario = PersonaAssembler.assembleUserFrom(req);
+		Actor personaFormulario = ActorAssembler.assembleUserFrom(req);
 		//Actor personaEnDatabase = servicio.searchOnePerson(personaFormulario.getCodPersona());
 		req.setAttribute("personaBorrar", personaEnDatabase);
 		servicio.borrarPersona(personaEnDatabase);

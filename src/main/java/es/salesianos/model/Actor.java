@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Actor {
 	
-	private int Cod;
-	private String Name;
+	private int cod;
+	private String name;
 	private int yearofbirthdate;
 	private List<Mascota> mascotas = new ArrayList();
 	
@@ -19,19 +19,19 @@ public class Actor {
 	}
 
 	public int getCod() {
-		return Cod;
+		return cod;
 	}
 
 	public void setCod(int cod) {
-		Cod = cod;
+		this.cod = cod;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public int getYearofbirthdate() {

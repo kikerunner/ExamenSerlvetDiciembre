@@ -26,7 +26,7 @@
 
 <%
 
-List<Actor> actores = (List<Actor>)request.getAttribute("listAllPersonas");
+List<Actor> actores = (List<Actor>)request.getAttribute("listAllActores");
 
  pageContext.setAttribute("actores", actores);
 
@@ -41,7 +41,6 @@ List<Actor> actores = (List<Actor>)request.getAttribute("listAllPersonas");
 			<td>Cod Actor</td>
 			<td>Nombre Actor</td>
 			<td>YearOfBirthDate</td>
-			<td>Editar</td>
 			<td>Borrar</td>
 		</tr>
 	</thead>
@@ -49,14 +48,12 @@ List<Actor> actores = (List<Actor>)request.getAttribute("listAllPersonas");
 	
 	
 
-		<c:forEach var="persona" items="${listAllPersonas}">
+		<c:forEach var="actor" items="${listAllActores}">
 			<tr>
-				<td><c:out value="${persona.codPersona}"/> </td>
-				<td><c:out value="${persona.name}"/> </td>
-				<td><c:out value="${persona.apellido}"/> </td>
-				<td><a href="/editar?codPersona=${persona.codPersona}">EDIT</a> </td>
-				<td><a href="/confirmarDelete?codPersona=${persona.codPersona}">DELETE</a> </td>
-				<td><a href="/addPet?codPersona=${persona.codPersona}">Añadir Mascota</a> </td>
+				<td><c:out value="${actor.cod}"/> </td>
+				<td><c:out value="${actor.name}"/> </td>
+				<td><c:out value="${actor.yearofbirthdate}"/> </td>
+				<td><a href="/confirmarDelete?cod=${actor.cod}">DELETE</a> </td>
 	    	</tr>
 		</c:forEach>
 	</tbody>

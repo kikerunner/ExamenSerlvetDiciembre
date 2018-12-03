@@ -28,8 +28,8 @@ public class Service {
 		repository.updatePerson(persona);
 	}
 	
-	public void borrarPersona(Actor persona) {
-		repository.borrarPersona(persona);
+	public void borrarActor(Actor actor) {
+		repository.borrarActor(actor);
 	}
 
 }
