@@ -84,6 +84,8 @@ public class DirectoresRepository {
 		
 	}
 	
+
+	
 	public Director selectOneDirector(int CodDirector) {
 		Director directorInDatabase = null;
 		Connection conn = manager.open(jdbcUrl);

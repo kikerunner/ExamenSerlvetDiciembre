@@ -9,7 +9,8 @@
 <body>
 	<a href="/ListarActores.jsp"> Lista de Actores</a><br>
 	<a href="/ListarPeliculas.jsp"> Lista de Peliculas</a><br>
+	<a href="/AsociarPeliculasActores.jsp"> Asociar Peliculas y Actores</a><br>
 	<a href="/ListarDirectores.jsp"> Lista de Directores</a><br>
-	<a href="/FindOwnerByPet.jsp"> Buscar mascota</a><br>
+	<a href="/FindActorBetweenYear.jsp"> Buscar Actores entre fechas</a><br>
 </body>
 </html>

@@ -17,22 +17,24 @@
 		<input type="submit">
 	</form>
 	<% 
-	Director directores = (Director)request.getAttribute("listResultados");
+	List<Actor> actores = (List<Actor>)request.getAttribute("listResultados");
 	
-	pageContext.setAttribute("director", directores);
+	pageContext.setAttribute("actores", actores);
 	%>
 
 <table border="1">
 	<thead>
 		<tr>
-			<td>Cod Director</td>
+			<td>Cod Actor</td>
 			<td>Nombre</td>
+			<td>Ano</td>
 		</tr>
 	</thead>
-	<c:forEach var="director" items="${listResultados}">
+	<c:forEach var="actor" items="${listResultados}">
 			<tr>
-				<td><c:out value="${director.cod}"/> </td>
-				<td><c:out value="${director.name}"/> </td>
+				<td><c:out value="${actor.cod}"/> </td>
+				<td><c:out value="${actor.name}"/> </td>
+				<td><c:out value="${actor.yearofbirthdate}"/> </td>
 	    	</tr>
 		</c:forEach>
 </table>

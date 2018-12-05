@@ -13,19 +13,19 @@ import es.salesianos.model.Actor;
 import es.salesianos.model.Pelicula;
 import service.Service;
 
-public class ListaPersonas extends HttpServlet{
+public class ListaActores extends HttpServlet{
 	
 	private Service servicio = new Service();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Pelicula> listAllPeliculas = servicio.listAllPeliculas();
-		req.setAttribute("listAllActores", listAllPeliculas);
+		List<Actor> listAllActores = servicio.listAllUsers();
+		req.setAttribute("listAllActores", listAllActores);
 		redirect(req,resp);
 	}
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarPeliculas.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListarActores.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

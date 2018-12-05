@@ -10,23 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Actor;
+import es.salesianos.model.Pelicula;
 import service.Service;
 
-public class BuscarOwner extends HttpServlet {
+public class ListaPeliculasAsociar extends HttpServlet{
 	
 	private Service servicio = new Service();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String ano1 = (String) req.getParameter("namePet");
-		String ano2 = (String) req.getParameter("namePet");
-		Actor listDuenos = servicio.findOwnerByPet(namePet);
-		req.setAttribute("listDuenos", listDuenos);
-		redirect(req, resp);
+		List<Pelicula> listAllPeliculas = servicio.listAllPeliculas();
+		req.setAttribute("listAllPeliculas", listAllPeliculas);
+		redirect(req,resp);
 	}
-
+	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/FindOwnerByPet.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AsociarPeliculasActores.jsp");
 		dispatcher.forward(req, resp);
 	}
+	
+
 }

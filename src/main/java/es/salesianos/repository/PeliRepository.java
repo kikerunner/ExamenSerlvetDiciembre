@@ -49,6 +49,34 @@ public class PeliRepository {
 		
 	}
 	
+	public Pelicula searchOne(Pelicula pelicula) {
+		Pelicula peliculaInDatabase = null;
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT * FROM FILM WHERE COD = ?");
+			preparedStatement.setInt(1, pelicula.getCodOwner());
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				peliculaInDatabase = new Pelicula();
+				peliculaInDatabase.setCod(resultSet.getInt(1));
+				peliculaInDatabase.setTitle((resultSet.getString(2)));
+				peliculaInDatabase.setCodOwner((resultSet.getInt(3)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+		}
+
+		manager.close(conn);
+		return peliculaInDatabase;
+		
+	}
+	
 
 	
 	

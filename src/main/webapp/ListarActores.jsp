@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="cargarListado" method="post">
+<form action="cargarListadoActores" method="post">
 
 	<input type="submit" value="ver listado">
 

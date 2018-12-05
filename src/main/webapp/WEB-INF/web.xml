@@ -10,11 +10,6 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>RelacionarPelicula</servlet-name>
-		<servlet-class>es.salesianos.servlet.RelacionarPelicula</servlet-class>
-	</servlet>	
-	
-	<servlet>
 		<servlet-name>InsertarDirector</servlet-name>
 		<servlet-class>es.salesianos.servlet.InsertarDirector</servlet-class>
 	</servlet>
@@ -25,14 +20,20 @@
 		<servlet-class>es.salesianos.servlet.InsertarPelicula</servlet-class>
 	</servlet>
 	
+	
 	<servlet>
-		<servlet-name>listado</servlet-name>
-		<servlet-class>es.salesianos.servlet.ListaPersonas</servlet-class>
+		<servlet-name>ListaActores</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListaActores</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>ListaPeliculas</servlet-name>
 		<servlet-class>es.salesianos.servlet.ListaPeliculas</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ListaPeliculasAsociar</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListaPeliculasAsociar</servlet-class>
 	</servlet>
 	
 	
@@ -52,11 +53,6 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>AddPet</servlet-name>
-		<servlet-class>es.salesianos.servlet.AddPet</servlet-class>
-	</servlet>
-	
-	<servlet>
 		<servlet-name>BorrarActor</servlet-name>
 		<servlet-class>es.salesianos.servlet.BorrarActor</servlet-class>
 	</servlet>
@@ -65,6 +61,13 @@
 		<servlet-name>BorrarPelicula</servlet-name>
 		<servlet-class>es.salesianos.servlet.BorrarPelicula</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>RelacionarPelicula</servlet-name>
+		<servlet-class>es.salesianos.servlet.RelacionarPelicula</servlet-class>
+	</servlet>
+	
+	
 	
 	<servlet>
 		<servlet-name>BorrarDirector</servlet-name>
@@ -117,26 +120,30 @@
 		<url-pattern>relacionarPelicula</url-pattern>
 	</servlet-mapping>
 	
+	
+	
+	
 	<servlet-mapping>
 		<servlet-name>BorrarDirector</servlet-name>
 		<url-pattern>borrarDirector</url-pattern>
 	</servlet-mapping>
 	
-	<servlet-mapping>
-		<servlet-name>AddPet</servlet-name>
-		<url-pattern>addPet</url-pattern>
-	</servlet-mapping>
-	
-	
-	<servlet-mapping>
-		<servlet-name>listado</servlet-name>
-		<url-pattern>cargarListado</url-pattern>
-	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>ListaPeliculas</servlet-name>
 		<url-pattern>cargarListadoPeliculas</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListaPeliculasAsociar</servlet-name>
+		<url-pattern>cargarListadoPeliculasAsociacion</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListaActores</servlet-name>
+		<url-pattern>cargarListadoActores</url-pattern>
+	</servlet-mapping>
+	
 	
 	<servlet-mapping>
 		<servlet-name>ListaDirectores</servlet-name>

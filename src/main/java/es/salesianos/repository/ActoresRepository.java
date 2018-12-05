@@ -11,6 +11,7 @@ import es.salesianos.connection.AbstractConnection;
 import es.salesianos.connection.H2Connection;
 import es.salesianos.model.Pelicula;
 import es.salesianos.model.Actor;
+import es.salesianos.model.Director;
 
 public class ActoresRepository {
 
@@ -35,6 +36,36 @@ public class ActoresRepository {
 		}
 
 		manager.close(conn);
+	}
+	
+	public List<Actor> selectActoresBetweenYear(int ano1, int ano2){
+		List<Actor> actores= new ArrayList<Actor>();
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT * FROM Actor AS A WHERE A.YEAROFBIRTHDATE BETWEEN ? AND ?;");
+			preparedStatement.setInt(1, ano1);
+			preparedStatement.setInt(2, ano2);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				Actor actorenDataBase = new Actor();
+				actorenDataBase.setCod(resultSet.getInt(1));
+				actorenDataBase.setName(resultSet.getString(2));
+				actorenDataBase.setYearofbirthdate((resultSet.getInt(3)));
+				
+				actores.add(actorenDataBase);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+		}
+
+		manager.close(conn);
+		return actores;
 	}
 	
 	public void insertPet(Pelicula mascota) {

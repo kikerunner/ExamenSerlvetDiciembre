@@ -23,6 +23,10 @@ public class Service {
 		return repoPeli.searchAll();
 	}
 	
+	public Pelicula listOnePelicula(Pelicula pelicula) {
+		return repoPeli.searchOne(pelicula);
+	}
+	
 	public List<Director> listAllDirectores() {
 		return repoDirector.searchAll();
 	}
@@ -39,8 +43,8 @@ public class Service {
 		return repoDirector.selectOneDirector(Cod);
 	}
 	
-	public Actor findOwnerByPet(String nomMascota) {
-		return repoPeli.selectOwnerByPet(nomMascota);
+	public List<Actor> findActoresBetweenYear(int ano1, int ano2) {
+		return repository.selectActoresBetweenYear(ano1, ano2);
 	}
 	
 	public void updatePerson(Actor persona) {
